@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher 101</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #1abc9c;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        h3 {
+            color: #1abc9c;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Regex Matcher 101</a></li>
+            <li><a href="/email">Email Validation</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>🔍 Regex Matcher 101</h1>
+        <form action="/regex_result" method="post">
+            <label style="color: #1abc9c;">Enter your Regular Expression:</label>
+            <input type="text" id="pattern" name="pattern" value="{{ pattern }}" autocomplete="off" required>
+            <br>
+            <label style="color: #1abc9c;">Enter your Test string:</label>
+            <textarea id="text" name="text" rows="4" cols="50" autocomplete="off" required>{{ text }}</textarea>
+            <br>
+            <button type="submit">Search</button>
+        </form>
+        <h3 style="color: #1abc9c;">Matches:</h3>
+        <p>
+            {% for match in matches %}
+                {{ match }}
+                {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+</body>
+</html>

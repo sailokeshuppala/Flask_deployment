@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #1d1abc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #1d1abc;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #153ea6;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li.valid {
+            color: #1d1abc;
+        }
+
+        li.invalid {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="/">Regex Matcher 101</a></li>
+            <li><a href="/email">Email Validation</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>📩 Email Validation</h1>
+        <form action="/validate_email" method="post">
+            <label style="color: #1d1abc;">Enter your email id:</label>
+            <input type="text" name="mail" value="{{ text }}" autocomplete="off" required>
+            <br>
+            <input type="submit" value="Check">
+        </form>
+        <ul>
+            {% if valid_mail == True %}
+                <li class="valid">Valid email</li>
+            {% elif valid_mail == False %}
+                <li class="invalid">Not a valid email</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
